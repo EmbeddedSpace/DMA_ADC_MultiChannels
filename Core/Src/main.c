@@ -68,7 +68,7 @@ int main(void)
 {
   /* USER CODE BEGIN 1 */
     RetargetInit(&huart1);
-    uint16_t ADBuffer[4];
+    uint16_t ADBuffer[4]={0,0,0,0};
   /* USER CODE END 1 */
 
   /* MCU Configuration--------------------------------------------------------*/
@@ -94,7 +94,7 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
     HAL_ADCEx_Calibration_Start(&hadc1);
-    HAL_ADC_Start_DMA(&hadc1,(uint32_t*)ADBuffer,4);
+    HAL_ADC_Start_DMA(&hadc1,(uint32_t*)(&ADBuffer),4);
   /* USER CODE END 2 */
 
   /* Infinite loop */
